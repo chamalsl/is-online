@@ -1,3 +1,7 @@
+build/
+release/
+*.db
+
 # Prerequisites
 *.d
 
