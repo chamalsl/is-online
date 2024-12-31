@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"any": "cpp"
+		}
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "debug",
+				"type": "cppdbg",
+				"request": "launch",
+				"cwd":"${workspaceFolder}",
+				"program":"${workspaceFolder}/build/debug/is-online",
+				"args": []
+			},
+			{
+				"name": "debug_tests",
+				"type": "cppdbg",
+				"request": "launch",
+				"cwd":"${workspaceFolder}",
+				"program":"${workspaceFolder}/build/debug/run_tests",
+				"args": []
+			}
+		]
+	}
+}
