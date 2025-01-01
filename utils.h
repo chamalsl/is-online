@@ -3,6 +3,6 @@
 class Utils{
   public:
 
-  static char* getHomeDirectory();
+  static std::string getHomeDirectory();
   static std::string getDataDirectory();
 };
