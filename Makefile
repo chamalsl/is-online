@@ -7,10 +7,10 @@ cxxflags.debug := -g -O0
 cxxflags.release := -O2
 cxxflags.sanitize_address:= -g -O0 -fsanitize=address
 CXXFLAGS := ${cxxflags.${BUILD}} ${cxxflags.common}
-_OBJ := main_window.o data_manager.o url_item_box.o worker_queue.o thread_safe_queue.o utils.o resources.o
+_OBJ := main_window.o data_manager.o url_item_box.o worker_queue.o thread_safe_queue.o utils.o resources.o url_data.o
 _TEST_OBJ := data_manager_unittest.o utils_unittest.o
 OBJ := ${patsubst %,${BUILD_DIR}%,${_OBJ}}
-TEST_OBJ := ${patsubst %,${BUILD_DIR}%,${_TESTOBJ}}
+TEST_OBJ := ${patsubst %,${BUILD_DIR}%,${_TEST_OBJ}}
 $(shell mkdir -p $(BUILD_DIR))
 
 ${BUILD_DIR}%.o: %.cc
