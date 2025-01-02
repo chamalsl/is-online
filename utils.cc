@@ -25,10 +25,12 @@ std::string Utils::getHomeDirectory()
             return std::string();
         }
         
-        home_dir = pw.pw_dir;
+        home_dir_str.append(pw.pw_dir);
         free(buf);
+    } else {
+        home_dir_str.append(home_dir);
     }
-    home_dir_str.append(home_dir);
+    
     return home_dir_str;
 }
 
