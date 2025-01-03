@@ -7,12 +7,14 @@ cxxflags.common :=  -I. `pkg-config --cflags gtkmm-3.0 libcurl` -std=c++17
 cxxflags.debug := -g -O0
 cxxflags.release := -O2
 cxxflags.sanitize_address:= -g -O0 -fsanitize=address
+cxxflags.sanitize_thread:= -g -O0 -fsanitize=thread
 CXXFLAGS := ${cxxflags.${BUILD}} ${cxxflags.common}
 
 ldflags.common :=
 ldflags.debug :=
 ldflags.release :=
 ldflags.sanitize_address := -fsanitize=address
+ldflags.sanitize_thread := -fsanitize=thread
 LDFLAGS := ${ldflags.${BUILD}} ${ldflags.common}
 
 
