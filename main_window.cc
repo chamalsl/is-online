@@ -55,7 +55,7 @@ MainWindow::MainWindow()
   m_mainContainer.set_valign(Gtk::ALIGN_FILL);
 
   m_aboutDialog.set_transient_for(*this);
-  //m_aboutDialog.set_logo(Gdk::Pixbuf::create_from_resource("/images/logo.svg"));
+  m_aboutDialog.set_logo(Gdk::Pixbuf::create_from_resource("/images/coconut.png"));
   m_aboutDialog.set_logo_default();
   m_aboutDialog.set_program_name("Is Online");
   m_aboutDialog.set_copyright("Chamal De Silva");
