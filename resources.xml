@@ -3,6 +3,6 @@
   <gresource prefix="/images">
     <file>floppy.svg</file>
     <file>delete.svg</file>
-    <file>logo.svg</file>
+    <file>coconut.png</file>
   </gresource>
 </gresources>
