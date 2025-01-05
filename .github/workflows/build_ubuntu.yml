@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Install dependancies
-      run:
+      run: |
         sudo apt update
         sudo apt -y install libgtkmm-3.0-dev libcurl4t64 libsqlite3-dev
     - name: make
