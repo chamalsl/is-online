@@ -6,9 +6,13 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install dependancies
+      run:
+        sudo apt update
+        sudo apt -y install libgtkmm-3.0-dev libcurl4t64 libsqlite3-dev
     - name: make
       run: make BUILD=release
