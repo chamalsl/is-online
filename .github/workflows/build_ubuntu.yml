@@ -20,12 +20,12 @@ jobs:
     - name: make_deb
       run: ./make_deb_24.sh
     - name: Upload isonline executable
-        uses: actions/upload-artifact@v4
-        with:
-          name: isonline
-          path: build/release/is-online
+      uses: actions/upload-artifact@v4
+      with:
+        name: isonline
+        path: build/release/is-online
     - name: Upload deb file for Ubuntu 24.04 
-        uses: actions/upload-artifact@v4
-        with:
-          name: is-online_0.1-1_ubuntu24.deb
-          path: release/Ubuntu24/is-online_0.1-1_amd64.deb
+      uses: actions/upload-artifact@v4
+      with:
+        name: is-online_0.1-1_ubuntu24.deb
+        path: release/Ubuntu24/is-online_0.1-1_amd64.deb
