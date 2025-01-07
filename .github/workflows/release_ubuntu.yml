@@ -25,7 +25,7 @@ jobs:
     - name: make_deb
       run: ./make_deb_24.sh
     - name: create sbom
-    - uses: anchore/sbom-action@v0
+      uses: anchore/sbom-action@v0
       with:
         output-file: release/Ubuntu24/
         artifact-name: is-online_sbom.spdx
@@ -48,5 +48,3 @@ jobs:
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online_0.1-1_amd64.deb
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/SHASUMS
-
-  
