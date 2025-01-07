@@ -27,8 +27,7 @@ jobs:
     - name: create sbom
       uses: anchore/sbom-action@v0
       with:
-        output-file: release/Ubuntu24/
-        artifact-name: is-online_sbom.spdx
+        output-file: release/Ubuntu24/is-online_sbom.spdx
     - name: Generate artifact attestation
       uses: actions/attest-build-provenance@v2
       with:
