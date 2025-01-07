@@ -6,6 +6,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   build:
@@ -23,6 +25,12 @@ jobs:
       run: make BUILD=release
     - name: make_deb
       run: ./make_deb_24.sh
+    - name: Generate artifact attestation
+      uses: actions/attest-build-provenance@v2
+      with:
+       subject-path: |
+         build/release/is-online
+         release/Ubuntu24/is-online_0.1-1_amd64.deb
     - name: Upload build files to release
       env:
         GITHUB_TOKEN: ${{ github.TOKEN }}
