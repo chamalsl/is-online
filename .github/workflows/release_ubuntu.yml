@@ -8,7 +8,7 @@ jobs:
   build:
     permissions:
       id-token: write
-      contents: read | write 
+      contents: write 
       attestations: write
       actions: read
     runs-on: ubuntu-24.04
