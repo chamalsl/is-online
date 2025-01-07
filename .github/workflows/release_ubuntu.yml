@@ -24,9 +24,9 @@ jobs:
     - name: make_deb
       run: ./make_deb_24.sh
     - name: Upload build files to release
-        env:
-          GITHUB_TOKEN: ${{ github.TOKEN }}
-        run: |
-          gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online_0.1-1_amd64.deb
-          gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/build/release/is-online
-          gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/SHASUMS
+      env:
+        GITHUB_TOKEN: ${{ github.TOKEN }}
+      run: |
+        gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online_0.1-1_amd64.deb
+        gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/build/release/is-online
+        gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/SHASUMS
