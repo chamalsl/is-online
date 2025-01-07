@@ -1,0 +1,32 @@
+name: Upload files to release
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-24.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependancies
+      run: |
+        sudo apt update
+        sudo DEBIAN_FRONTEND=noninteractive apt -y install tzdata
+        sudo apt -y install libgtkmm-3.0-dev libcurl4-openssl-dev libsqlite3-dev
+    - name: make
+      run: make BUILD=release
+    - name: make_deb
+      run: ./make_deb_24.sh
+    - name: Upload build files to release
+        env:
+          GITHUB_TOKEN: ${{ github.TOKEN }}
+        run: |
+          gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online_0.1-1_amd64.deb
+          gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/build/release/is-online
+          gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/SHASUMS
