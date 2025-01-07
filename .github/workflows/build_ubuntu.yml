@@ -29,3 +29,6 @@ jobs:
       with:
         name: is-online_0.1-1_ubuntu24.deb
         path: release/Ubuntu24/is-online_0.1-1_amd64.deb
+      with:
+        name: SHASUMS
+        path: release/Ubuntu24/SHASUMS
