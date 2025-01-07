@@ -6,6 +6,11 @@ on:
 
 jobs:
   build:
+    permissions:
+      id-token: write
+      contents: read | write 
+      attestations: write
+      actions: read
     runs-on: ubuntu-24.04
 
     steps:
@@ -19,28 +24,11 @@ jobs:
       run: make BUILD=release
     - name: make_deb
       run: ./make_deb_24.sh
-
-  create-sbom:
-    permissions:
-     actions: read
-     contents: write
-    runs-on: ubuntu-24.04
-
-    steps:
+    - name: create sbom
     - uses: anchore/sbom-action@v0
       with:
         output-file: release/Ubuntu24/
         artifact-name: is-online_sbom.spdx
-  
-  attestation:
-    permissions:
-      id-token: write
-      contents: read
-      attestations: write
-
-    runs-on: ubuntu-24.04
-
-    steps:
     - name: Generate artifact attestation
       uses: actions/attest-build-provenance@v2
       with:
@@ -53,13 +41,6 @@ jobs:
       with:
         subject-path: build/release/is-online
         sbom-path: release/Ubuntu24/is-online_sbom.spdx
-  
-  upload_to_release:
-    permissions:
-      contents: write
-    runs-on: ubuntu-24.04
-
-    steps:
     - name: Upload build files to release
       env:
         GITHUB_TOKEN: ${{ github.TOKEN }}
@@ -67,6 +48,5 @@ jobs:
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online_0.1-1_amd64.deb
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/SHASUMS
-
 
   
