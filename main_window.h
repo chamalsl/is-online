@@ -46,6 +46,7 @@ private:
   bool m_checkingAll = false;
   uint32_t m_nextRow = 1;
   size_t next_task_id = 0;
+  std::unique_ptr<std::string> m_version;
   std::unique_ptr<DataManager> m_dataManager = NULL;
   std::unique_ptr<WorkerQueue> m_workerQueue = NULL;
   std::thread* m_workersThread = NULL;

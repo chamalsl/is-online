@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <giomm/resource.h>
 #include "main_window.h"
 
 MainWindow::MainWindow()
@@ -57,6 +58,25 @@ MainWindow::MainWindow()
   m_aboutDialog.set_transient_for(*this);
   m_aboutDialog.set_logo(Gdk::Pixbuf::create_from_resource("/images/coconut.png"));
   m_aboutDialog.set_logo_default();
+  Glib::RefPtr< const Glib::Bytes > version = Gio::Resource::lookup_data_global("/data/VERSION");
+  if (!version || version->get_size() == 0) {
+    m_version = std::make_unique<std::string>("0.0.0");
+  }
+  else {
+    gsize size = version->get_size();
+    char* tmp = (char*)malloc(size + 1);
+    if (!tmp){
+      std::cout << "Out of memory. Could not read version.\n";
+      exit(1);
+    }
+
+    memcpy(tmp, version->get_data(size), version->get_size());
+    tmp[size] = '\0';
+    m_version = std::make_unique<std::string>(tmp); 
+    free(tmp);
+  }
+
+  m_aboutDialog.set_version(*m_version.get());
   m_aboutDialog.set_program_name("Is Online");
   m_aboutDialog.set_copyright("Chamal De Silva");
   m_aboutDialog.set_license_type(Gtk::License::LICENSE_MIT_X11);

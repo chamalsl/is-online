@@ -5,4 +5,7 @@
     <file>delete.svg</file>
     <file>coconut.png</file>
   </gresource>
+  <gresource prefix="/data">
+    <file>VERSION</file>
+  </gresource>
 </gresources>

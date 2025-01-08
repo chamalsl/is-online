@@ -1,4 +1,5 @@
-VERSION=0.1
+VERSION=$(<VERSION)
+echo "Creating release for version - ${VERSION}"
 PATCH_VERSION=1
 RELEASE_FILE=is-online_${VERSION}-${PATCH_VERSION}_amd64
 RELEASE_DIR=release/Ubuntu24/${RELEASE_FILE}
@@ -20,5 +21,6 @@ dpkg-deb --build --root-owner-group ${RELEASE_FILE}/
 #Generate SHASUMS file
 sha256sum is-online >> SHASUMS
 sha256sum ${RELEASE_FILE}.deb >> SHASUMS
+echo "Done"
 
 
