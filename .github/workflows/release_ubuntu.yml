@@ -33,7 +33,7 @@ jobs:
       with:
        subject-path: |
          build/release/is-online
-         release/Ubuntu24/is-online_0.1-1_amd64.deb
+         release/Ubuntu24/is-online_${{github.event.release.tag_name}}_amd64.deb
          release/Ubuntu24/SHASUMS
     #- name: Generate SBOM attestation
     #  uses: actions/attest-sbom@v1
@@ -44,6 +44,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.TOKEN }}
       run: |
-        gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online_0.1-1_amd64.deb
+        gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online_${{github.event.release.tag_name}}_amd64.deb
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/is-online
         gh release upload ${{github.event.release.tag_name}} release/Ubuntu24/SHASUMS
