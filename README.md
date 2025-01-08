@@ -26,8 +26,13 @@ For example `make BUILD=debug` will save out output in build/debug directory.
 Follow these instructions, if you want to change icons such as floppy.svg or delete.svg.   
 1. Modify svg files. Do not change file names.
 2. Compile them to resources.cc   
-   `glib-compile-resources --target=resources.cc --generate-source resources.xml`   
+   `glib-compile-resources --target=resources.cc --generate-source resources.xml`
 
+## Make .deb package
+
+Run this command to make a .deb package for Ubuntu 24.04.   
+`./make_deb_24.sh`   
+This command will create a deb package inside release/Ubuntu24 directory.
 
 
 
