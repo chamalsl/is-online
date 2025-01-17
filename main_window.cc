@@ -329,6 +329,7 @@ void MainWindow::updateURL(uint32_t id){
     showError("Could not update!");
     return;
   }
+  url_item_box->clearResult();
 }
 
 void MainWindow::deleteURL(uint32_t id){
