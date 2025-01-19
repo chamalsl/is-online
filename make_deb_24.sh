@@ -9,7 +9,7 @@ cp build/release/is-online release/Ubuntu24/
 cp build/release/is-online ${RELEASE_DIR}/usr/local/bin/is-online
 
 echo "Package: is-online" > ${RELEASE_DIR}/DEBIAN/control
-echo "Version: 0.1.1" >> ${RELEASE_DIR}/DEBIAN/control
+echo "Version: ${VERSION}" >> ${RELEASE_DIR}/DEBIAN/control
 echo "Architecture: amd64" >> ${RELEASE_DIR}/DEBIAN/control
 echo "Maintainer: Chamal De Silva <chamaldesilva@gmail.com>" >> ${RELEASE_DIR}/DEBIAN/control
 echo "Description: Program which checks whether a web site is online." >> ${RELEASE_DIR}/DEBIAN/control
