@@ -21,7 +21,10 @@ jobs:
         sudo DEBIAN_FRONTEND=noninteractive apt -y install tzdata
         sudo apt -y install libgtkmm-3.0-dev libcurl4-openssl-dev libsqlite3-dev
     - name: make
-      run: make BUILD=release
+      run: |
+        rm resources.cc
+        glib-compile-resources --target=resources.cc --generate-source resources.xml
+        make BUILD=release
     - name: make_deb
       run: ./make_deb_24.sh
     #- name: create sbom
