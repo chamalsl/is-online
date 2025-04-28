@@ -42,7 +42,7 @@ std::string Utils::getDataDirectory()
     }
 
     std::filesystem::path home_dir_path(home_dir);
-    home_dir_path.append(".local/share/is-online");
+    home_dir_path.append(".local/share/rammini.com/is-online");
     return home_dir_path.u8string();
 }
 

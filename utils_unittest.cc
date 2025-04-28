@@ -27,6 +27,6 @@ TEST(Utils, getDataDirectory){
   char* user = getlogin();
   std::string expected_path("/home/");
   expected_path.append(user);
-  expected_path.append("/.local/share/is-online");
+  expected_path.append("/.local/share/rammini.com/is-online");
   ASSERT_EQ(expected_path, actual);
 }
