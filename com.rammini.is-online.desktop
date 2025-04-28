@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version={VERSION}
+Type=Application
+Name=Is-online
+Comment=Simple application to check whether a web site is online.
+TryExec=is-online
+Exec=is-online
+Categories=Utility;
+Icon=com.rammini.is-online.svg
+StartupWMClass=is-online
